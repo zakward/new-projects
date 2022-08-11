@@ -1,27 +1,3 @@
-
-
-
-
-// export default function TableProjects(props) {
-//    
-   
-
- 
-     
-        // console.log(props.data)
-        
-//     return (
-//         <>
-//             <h1>Test</h1>
-//         </>
-        // <>
-        //     <h1>Test</h1>
-        //       
-        // </>
-//     )
-// }
-// }
-
 import { React, useState } from "react"
 import "../index.css"
 import ReadOnlyRow from "./ReadOnlyRow"
@@ -34,18 +10,21 @@ function TableProjects(props) {
 
     function handleEditClick(e, task) {
         e.preventDefault()
-        props.data.map(project => {
-            if(project._id === task._id)
-             {
-                setIsEditing(true)
-            }
-             else {
-            console.log("fail")
+        setIsEditing(true)
+        console.log(task._id)
+        setEditTaskId(task._id)
+        // props.data.map(project => {
+        //      if(project._id === task._id)
+        //      {
+        //          setIsEditing(true)
+        //     }
+        //      else {
+        //     console.log("fail")
+        // }
         }
-        })
       
        
-    }
+    
     function handleDeleteTask(iD) {
         props.delete(iD)
     }
@@ -60,6 +39,9 @@ function TableProjects(props) {
 
     }
 
+   
+    console.log(editTaskId)
+    
  
     return (
         <>
@@ -78,9 +60,9 @@ function TableProjects(props) {
                  <tbody>
                      {props.data.map(task => (
       
-      
       <>
-                      {isEditing === true || editTaskId === task._id ?
+                      {isEditing === true  ? 
+                      
                        <NewEditableRow  saveEdits = {handleEditSave } task = {task}/>
                    :
                         <ReadOnlyRow handleDelete = {handleDeleteTask}  editClick = {handleEditClick} task = {task} />

@@ -115,6 +115,7 @@ console.log(editInput)
     return (
         <>
             <div className  = "task-card">
+                <button onClick = {handleDeleteTask} className = "delete-btn">X</button>
                { isComplete.isComplete === true   ? <img src = {checkmark} className = "checkmark" /> : <></> }
             {props.priority=== "Very High" ? <img className = "task-img" src = {pushpin} /> : <p className = "no-priority">no priority</p>}
            
@@ -146,8 +147,8 @@ console.log(editInput)
                 <button onClick = {() => setEditAssignedTask(true)} className ="change-btn">CHANGE</button> }
                 {editAssignedTask? <button className = "save-btn" onClick = {handleAssignTaskSave}>SAVE</button> : <></> }
 
-                        <button onClick = {handleDeleteTask} className = "delete-btn">X</button>
-                        <div className = "dark-mode">
+                        
+                        <div className = "dark-mode completed">
                         <span className = "dark-title-card">Completed?</span>
                         <label className = "switch complete">
                            {isComplete.isComplete === true ? <input type = "checkbox" onChange = {handleCompletedChange} checked /> : <input type = "checkbox" onChange = {handleCompletedChange} />}

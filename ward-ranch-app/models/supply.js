@@ -21,16 +21,17 @@ const supplySchema = new Schema( {
     dateOfPurchase : [{
             type: Date,
             required: true,
-            default: Date.now 
+            default: Date.now,
+            quanityPurchased: null
     }],
     quanity : {
         type: Number
     },
-    purchaseTotal : {
-        type: Number
-    },
     imgUrl: {
         type: String
+    },
+    urgent: {
+        type: Boolean
     }
             
 }    

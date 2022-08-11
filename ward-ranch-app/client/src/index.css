@@ -17,7 +17,10 @@
   position: relative;
   bottom: 10px;
 }
-
+.dark-mode.completed {
+  position: relative;
+  top: 10px;
+}
 .arrow-down {
   position: relative;
   height: 20px;
@@ -109,9 +112,12 @@
 
 #title {
   color: whitesmoke;
-  font-size: 146px;
- font-family: 'Taviraj', serif;
+  font-size: 81px;
+  font-family: 'Taviraj', serif;
+  position: relative;
+  bottom: 110px;
 }
+
 
 #app-name {
   position: relative;
@@ -208,10 +214,11 @@
 }
 
 .task-header {
-  font-size: 74px;
+  font-size: 40px;
+  width: 150px;
   position: relative;
-  left: 50px;
-  bottom: 100px;
+  left: 190px;
+  bottom: 171px;
   text-align: center;
   padding-top: 100px;
   font-family: 'Taviraj', serif;
@@ -256,13 +263,14 @@
   background-color: lightgreen;
   -webkit-transition: .4s;
   transition: .4s;
+  height: 28px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 20px;
+  width: 20px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -334,12 +342,12 @@ input:checked + .slider.complete {
 .select-button label {
  font-family: 'Taviraj', serif;;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 10px;
 }
 
 .select-button select  {
  font-family: 'Taviraj', serif;; 
-  font-size: 20px;
+  font-size: 10px;
   border-radius: 10px;
 }
 
@@ -362,7 +370,7 @@ input:checked + .slider.complete {
 .task-card {
   border: 3px solid black;
   border-radius: 8px;
-  height: 250px;
+  height: 330px;
   width: 200px;
   padding: 20px;
   display: flex;
@@ -371,7 +379,7 @@ input:checked + .slider.complete {
   background-color: yellow;
   color: darkgreen;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 12px;
   box-shadow: 0 0 10px 10px white;
   flex-wrap: wrap;
   margin: 20px;
@@ -381,8 +389,10 @@ input:checked + .slider.complete {
 
 .task-location {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 12px;
   margin-bottom: 5px;
+  position: relative;
+  bottom: 55px;
 }
 
 .dark-title-card {
@@ -398,14 +408,14 @@ input:checked + .slider.complete {
 .task-img {
   filter: invert(15%) sepia(68%) saturate(6391%) hue-rotate(1deg) brightness(108%) contrast(128%);  
   position: absolute;
-  bottom: 255px;
-  left: 200px;
+  bottom: 405px;
+  left: 278px;
   height: 30px;
   width: 35px;
 }
 
 .priority-msg {
-  color: red;
+  color: #ff0000;
   font-weight: 800;
   font-size: 12px;
   text-align: center;
@@ -414,9 +424,9 @@ input:checked + .slider.complete {
   /* position: relative;
   bottom: 100px;
   left: 475px; */
-  border: 2px solid red;
+  /* border: 2px solid red;
   border-radius: 7px;
-  background-color: rgb(231, 228, 228);
+  background-color: rgb(231, 228, 228); */
   height: 25px;
   width: 200px;
   padding-top : 5px;
@@ -435,17 +445,14 @@ input:checked + .slider.complete {
 }
 
 .add-form {
-  height: 75px;
-  width: 200px;
-  border: 3px solid black;
+  height: 53px;
+  width: 76px;
+  /* border: 3px solid white; */
   background-color: lightgreen;
-  box-shadow: 0 0 10px 10px white;
+  box-shadow: 0 0 8px 8px chartreuse;
   border-radius: 10px;
   color: darkgreen;
-  font-size: 20px;
-  /* position: relative;
-  left: 43%;
-  margin-bottom: 200px; */
+  font-size: 8px;
   font-family: 'Taviraj', serif;
   cursor: pointer;
 }
@@ -468,7 +475,7 @@ input:checked + .slider.complete {
   width: 450px;
   box-shadow: 0 0 20px 20px white;
   position: absolute;
-  bottom: 50px;
+  bottom: -171px;
 }
 
 .form-input {
@@ -476,10 +483,12 @@ input:checked + .slider.complete {
   width: 165px;
   box-shadow: 0 0 5px 5px white;
   font-family: 'Taviraj', serif;
-  font-size: 18px;
+  font-size: 13px;
   color: gray;
   padding-left: 15px;
   margin-bottom: 8px;
+  position: relative;
+  bottom: 10px;
 }
 
 
@@ -502,14 +511,14 @@ input:checked + .slider.complete {
 }
 
 .form-submit-btn {
-  height: 55px;
-  width: 200px;
+  height: 41px;
+  width: 179px;
   border: 3px solid black;
   background-color: darkgreen;
   box-shadow: 0 0 10px 10px white;
   border-radius: 10px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 25px;
 }
 
@@ -521,13 +530,15 @@ input:checked + .slider.complete {
 }
 
 .table-delete-btn {
-  height: 25px;
-  width: 75px;
+  height: 15px;
+  width: 45px;
   background-color: red;
   border: 1px solid black;
-  margin-left: 10px;
   color: white;
+  font-size: 8px;
   cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 .delete-btn {
@@ -540,18 +551,21 @@ input:checked + .slider.complete {
   background-color: white;
   font-size: 26px;
   font-family:Arial, Helvetica, sans-serif;
-  position: absolute;
-  bottom: 260px;
-  right: 215px;
+  position: relative;
+  bottom: 51px;
+  right: 46px;
   cursor: pointer;
 }
 
 .assigned-div {
-  margin-top: 20px;
+
   height: 20px;
-  margin-bottom: 35px;
+  
   font-size: 14px;
+  position: relative;
+  bottom: 15px;
 }
+
 
 .family-opt {
   height: 35px;
@@ -569,18 +583,19 @@ input:checked + .slider.complete {
   border: 2px solid darkgreen;
   font-size: 14px;
   position: relative;
-  bottom: 66px;
+  bottom: 61px;
 }
 
 .assign-name {
   color: red;
   font-family: 'Taviraj', serif;
   font-size: 14px;
+ 
 }
 
 .save-btn {
-  height: 25px;
-  width: 75px;
+  height: 20px;
+  width: 50px;
   border: 2px solid black;
   background-color: lightgreen;
   border-radius: 7px;
@@ -588,23 +603,24 @@ input:checked + .slider.complete {
   font-size: 10px;
   margin-top: 10px;
   position: relative;
-  top: 115px;
-  right: 200px;
+  bottom: 55px;
+  left: 66px;
   cursor: pointer;
 }
 
 .change-btn {
-  height: 25px;
-  width: 75px;
+  height: 20px;
+  width: 50px;
   border:2px solid black;
   background-color: lightgreen;
   border-radius: 7px;
   color: darkgreen;
-  font-size: 10px;
+  font-size: 8px;
   margin-top: 20px;
   cursor: pointer;
   position: relative;
-  bottom: 50px;
+  bottom: 10px;
+  left: 66px;
 }
 
 /* }.edit-btn {
@@ -623,11 +639,11 @@ input:checked + .slider.complete {
 .checkmark {
   height:75px;
   width: 75px;
-  position: absolute;
+  position: relative;
   z-index: 1;
-  bottom: 255px;
-  left: 90px;
-  filter: invert(98%) sepia(4%) saturate(6728%) hue-rotate(38deg) brightness(97%) contrast(94%);
+  bottom: 108px;
+  left: 60px;
+  filter: invert(26%) sepia(100%) saturate(1460%) hue-rotate(92deg) brightness(94%) contrast(107%);
 }
   /* 
 .edit-btn {
@@ -642,14 +658,15 @@ input:checked + .slider.complete {
 } */
 
 .edit-btn {
-  width: 75px;
-  height: 25px;
+  width: 50px;
+  height: 20px;
   border: 2px solid black;
   background-color: lightgreen;
   border-radius: 7px;
   font-size: 10px;
   position: relative;
-  top: 10px;
+  bottom: 26px;
+  left: 66px;
   color: darkgreen;
   cursor: pointer;
 }
@@ -658,26 +675,26 @@ input:checked + .slider.complete {
 table {
   border: 1px solid white;
   color: black;
-  height: 500px;
+  height: 100%;
   background-color: white;
   padding: 5px;
 }
 
 th, td {
   border: 1px solid black;
-  padding: 15px;
+  padding: 5px;
 }
 
 th {
   background-color: #006100;
   color: white;
-  width: 200px;
-  height: 50px;
-  font-size: 24px;
+  width: 100px;
+  height: 20px;
+  font-size: 8px;
 }
 
 td {
-  font-size: 24px;
+  font-size: 8px;
   font-family: 'Taviraj', serif;
   text-align: center;
 }
@@ -700,29 +717,32 @@ tr:hover {
 
 .table-view {
   margin-left: 20px;
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'Taviraj', serif;
 }
 
 .card-view {
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'Taviraj', serif;
 }
 
 .editable-row {
-  font-size: 24px;
-  width: 150px;
+  font-size: 8px;
+  width: 50px;
+  
 }
 
 .edit-save-btn {
-  width: 75px;
-  height: 25px;
-  font-size: 16px;
+  width: 40px;
+  height: 20px;
+  font-size: 8px;
   position: relative;
-  left: 50px;
   background-color: red;
   border: 2px solid black;
   cursor: pointer;
+  padding: 2px;
+  left: 1px;
+  bottom: 10px;
 }
 
 
@@ -746,17 +766,17 @@ bottom: 100px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 650px;
+  width: 375px;
 }
 
 .filter-view-btn {
-height: 40px;
-width: 300px;
-box-shadow: 0 0 5px 5px white;
-font-family: 'Taviraj', serif;;
-font-size: 18px;
-color: rgb(62, 61, 61);
-padding-left: 15px
+  height: 25px;
+  width: 165px;
+  box-shadow: 0 0 5px 5px white;
+  font-size: 7px;
+  font-size: 7px;
+  color: rgb(62, 61, 61);
+  padding-left: 15px;
 }
 
 .task-table {
@@ -766,7 +786,9 @@ padding-left: 15px
 }
 
 .task-title {
-  font-size: 16px;
+  font-size: 12px;
+  position: relative;
+  bottom: 34px;
 }
 
 /* .edit-btn-data {
@@ -785,30 +807,31 @@ padding-left: 15px
   }
 
   .supplies-header {
-  font-size: 66px;
-  position: relative;
-  left: 400px;
-  bottom: 50px;
+  font-size: 46px;
   font-family: 'Taviraj', serif;
   color: whitesmoke;
-  width: 450px;
+  position: relative;
+  left: 45%;
+  width: 200px;
+  bottom: 25%;
   }
 
   .button-div {
     position: relative;
     height: 100px;
-    width: 400px;
-    left: 400px;
+    width: 100%;
     display: flex;
+    top: 10%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-bottom: 40px;
   }
 
   .supply-btn {
     height: 50px;
     width: 150px;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 12px;
     font-family: 'Taviraj', serif;
     cursor: pointer;
   }
@@ -819,8 +842,9 @@ padding-left: 15px
     background-color: whitesmoke;
     border-radius: 7px;
     height: 200px;
-    width: 500px;
+    width: 300px;
     box-shadow: 0 0 10px 10px white;
+
   }
   
 
@@ -828,16 +852,22 @@ padding-left: 15px
     color: black;
     font-family: 'Taviraj', serif;
     font-size: 16px;
+    position: relative;
+    left: 50%;
+    bottom: 50%;
+    font-size: 26px;
+    width: 125px;
   }
 
 
   .supply-img {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
   }
 
   .details-container {
-    width: 275px;
+    width: 110px;
     position: relative;
     left: 220px;
     bottom: 200px;
@@ -853,9 +883,115 @@ padding-left: 15px
 
   .supply-elements-container {
     display: flex;
-    position: relative;
-    left: 350px;
-    top: 55px;
+    /* position: relative; */
     flex-direction: column;
     gap: 50px;
+    width: 100%;
+    margin-left: 35px;
   }
+
+  .supply-card-link {
+    cursor: pointer;
+    width:200px;
+    text-decoration: none;
+  }
+
+  .detail-page {
+    background-image: radial-gradient(circle farthest-side, #FCEABB, #F8B500);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .supply-detail-img {
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px white;
+    position: relative;
+    top: 10%;
+
+  }
+
+  .details-list {
+    position: relative;
+    top: 15%;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 7px;
+    padding: 15px;
+    list-style-type: none;
+  
+  }
+
+  .details-list > li {
+    
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .purchase-dates {
+    font-size: 14px;
+  }
+
+  .urgent-btn {
+    position: relative;
+    top: 150px;
+    height: 35px;
+    width: 95px;
+    border-radius: 7px;
+    font-family: 'Taviraj', serif;
+    font-size: 9px;
+    font-weight: 800;
+    color: red;
+  }
+
+.urgent-alert {
+  color: red;
+  font-family: 'Taviraj', serif;
+  
+}
+  
+.supply-card-urgent-tag {
+  position: relative;
+  bottom: 250px;
+  left: 200px;
+  color: red;
+  font-family: 'Taviraj', serif;
+  font-weight: 800;
+}
+
+.detail-edit-form {
+  position: relative;
+  top: 125px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.back-btn {
+  color: darkgreen;
+  font-size: 16px;
+  font-weight: 800;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 150px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Taviraj', serif;
+  background-color: lightgreen;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: absolute;
+  left: 0;
+  margin-bottom: 50px;
+}
+
+.read-only {
+  height: 15px;
+  width: 35px;
+  font-size: 8px;
+  border-radius: 5px;
+  font-family: 'Taviraj', serif;
+}

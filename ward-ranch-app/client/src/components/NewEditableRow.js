@@ -66,7 +66,7 @@ function NewEditableRow({task, saveEdits}) {
                                       <option value = "Very High">High Priority</option>
                                       <option value = "none">No Priority</option>
                           </select></td>
-                         <button className = "form-submit-btn edit-save-btn" onClick = {editSave} >SAVE</button>
+                        <td><button className = "form-submit-btn edit-save-btn" onClick = {editSave} >SAVE</button></td> 
                   </tr>
     )
 }

@@ -191,7 +191,7 @@ function Projects() {
                       
                 <div className = 'button-options'>
                      <span className = "select-button">
-                        <label>Please select location</label>
+                        <label>FILTER BY LOCATION</label>
                             <select onChange = {handleFilterView}>
                                 <option className = "invalid" disabled>LOCATION</option>
                                 <option value = "ALL">ALL</option>

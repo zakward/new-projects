@@ -18,7 +18,7 @@ function ReadOnlyRow({task, editClick, handleDelete}) {
                             <td>{task.isComplete ? "Complete" : "Not Complete"}</td>
                             <td className = {task.priority === "Very High" ? "priority" : "" }>{task.priority}</td>
                             <td>
-                                <button className = "edit-button"   onClick = {(event) => editClick(event, task)}>EDIT</button>
+                                <button className = "edit-button read-only"   onClick = {(event) => editClick(event, task)}>EDIT</button>
                                 <button className = "table-delete-btn" onClick = {deleteTableProject}  >DELETE</button>
                             </td>
                         </tr>

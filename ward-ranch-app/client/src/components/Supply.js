@@ -1,39 +1,22 @@
 import React from "react"
+import {Link} from "react-router-dom"
+import SupplyDetail from "./SupplyDetail"
 
 function Supply({supply}) {
 
 
-    //       item : "",
-    // locationName: "",
-    // locationLink: "",
-    // price: null,
-    // dateOfPurchase: "",
-    // quanity: "",
-    // purchaseTotal : null
-
-    const date = new Date(supply.dateOfPurchase).getUTCDate()
-    let month = new Date(supply.dateOfPurchase).getUTCMonth()
-    month = month + 1
-    const year = new Date(supply.dateOfPurchase).getUTCFullYear()
-
-    console.log(date, month, year)
-
-    
-    
+    console.log(supply.urgent)
 
     return (
         <>
 
-            <div className = "supply-card">
-                <img src = {supply.imgUrl} className = "supply-img"/>
-                <div className = "details-container">
-                    <p>{supply.item.toUpperCase()}</p>
-                    <p>{supply.locationName}</p>
-                    <p>${supply.price}/ea</p>
+            <Link to = {`/supplies/${supply._id}`} className = "supply-card-link" supply ={supply}>
+                <div className = "supply-card">
+                    <img src = {supply.imgUrl} className = "supply-img"/>
+                    <p className= "supply-item">{supply.item.toUpperCase()}</p>
+                    {supply.urgent ? <h3 className = "supply-card-urgent-tag">URGENT</h3> : <></> }
                 </div>
-                             
-
-            </div>
+            </Link>
 
         </>
       
