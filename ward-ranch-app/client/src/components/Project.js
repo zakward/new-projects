@@ -148,12 +148,9 @@ console.log(editInput)
                 {editAssignedTask? <button className = "save-btn" onClick = {handleAssignTaskSave}>SAVE</button> : <></> }
 
                         
-                        <div className = "dark-mode completed">
-                        <span className = "dark-title-card">Completed?</span>
-                        <label className = "switch complete">
-                           {isComplete.isComplete === true ? <input type = "checkbox" onChange = {handleCompletedChange} checked /> : <input type = "checkbox" onChange = {handleCompletedChange} />}
-                            <span className= "slider round complete"></span>
-                        </label>
+                        <div className = "completed-div">
+                        <span className = "completed-title">Completed?</span>
+                           {isComplete.isComplete === true ? <input className = "completed-checkbox" type = "checkbox" onChange = {handleCompletedChange} checked /> : <input className = "completed-checkbox"type = "checkbox" onChange = {handleCompletedChange} />}
                         </div>
                 {/* <select className = "family-opt">
                     <option>--- Select ---</option>

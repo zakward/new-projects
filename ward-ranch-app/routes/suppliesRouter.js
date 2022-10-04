@@ -15,6 +15,7 @@ suppliesRouter.get("/", (req, res, next) => {
 
 //post one
 suppliesRouter.post("/", (req, res, next) => {
+    
     const newSupply = new Supply(req.body) 
     newSupply.save((err, savedSupply) => {
         if(err) {

@@ -8,6 +8,10 @@ import Navbar from "./Navbar"
 
 
 function Projects() {
+
+
+
+
     const [projectArr, setProjectArr] = useState([])
     const [formStatus, setFormStatus] = useState(false)
     const [viewToggle, setViewToggle] = useState(false)
@@ -15,11 +19,15 @@ function Projects() {
     //     return <Task {...task} onDelete = {handleDelete} onEdit = {handleEdit} />
     // })
     function getProjects() {
-        axios.get("/tasks")
+        axios.get("/api/tasks")
             .then(res => setProjectArr(res.data))
             // .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
+
+
+
+
     useEffect(() => {
         getProjects()
     }, [] )
@@ -31,13 +39,13 @@ function Projects() {
     // console.log(tasksArr)
         function handleFilterView(e) {
             if (e.target.value === "Inside") {
-                axios.get("/tasks/search/location?location=Inside")
+                axios.get("api/tasks/search/location?location=Inside")
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
                 console.log("inside stuff")
             }
             else if (e.target.value === "Outside") {
-                axios.get("/tasks/search/location?location=Outside")
+                axios.get("api/tasks/search/location?location=Outside")
                      .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
                 console.log("outside stuff")
@@ -48,47 +56,47 @@ function Projects() {
         }
         function handleFilterTaskView(e) {
             if (e.target.value === "No One" ) {
-                axios.get(`/tasks/search/assignedTo?assignedTo=No One`)
+                axios.get(`/api/tasks/search/assignedTo?assignedTo=No One`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Any One" ) {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Any One`)
+                axios.get(`/api/tasks/search/assignedTo?assignedTo=Any One`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Zak") {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Zak`)
+                axios.get(`/api/tasks/search/assignedTo?assignedTo=Zak`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Rebecca" ) {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Rebecca`)
+                axios.get(`/api/tasks/search/assignedTo?assignedTo=Rebecca`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Kids" ) {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Kids`)
+                axios.get(`/api/tasks/search/assignedTo?assignedTo=Kids`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Pops") {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Pops`)
+                axios.get(`api/tasks/search/assignedTo?assignedTo=Pops`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Grandma Alicia" ) {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Grandma Alicia`)
+                axios.get(`api/tasks/search/assignedTo?assignedTo=Grandma Alicia`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "GiGi") {
-                axios.get(`/tasks/search/assignedTo?assignedTo=GiGi`)
+                axios.get(`api/tasks/search/assignedTo?assignedTo=GiGi`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
             else if (e.target.value === "Papa" ) {
-                axios.get(`/tasks/search/assignedTo?assignedTo=Papa`)
+                axios.get(`api/tasks/search/assignedTo?assignedTo=Papa`)
                     .then(res => setProjectArr(res.data))
                     .catch(err => console.log(err))
             }
@@ -99,7 +107,7 @@ function Projects() {
         //ADD TASK
         function addProject(project) {
             console.log("add project was executed")
-            axios.post("/tasks", project)
+            axios.post("api/tasks", project)
                 .then(res => setProjectArr(prevProjectArr => {
                     return [
                         ...prevProjectArr,
@@ -176,15 +184,16 @@ function Projects() {
         <>
             
             <div className = "task-container">
-                
-            <Navbar />
-                <h1 className = "task-header">Project Organizer</h1>
+                <div className = "project-background">
+
+                </div>
+                <h1 className = "task-header">Projects</h1>
                 <div className = "task-header-options">
                 <div className = "dark-mode view-mode">
                         <span className = "dark-title-card card-view">CARD VIEW</span>
                         <label className = "switch">
                            <input type = "checkbox" onChange = {toggleView}  />
-                            <span className= "slider round"></span>
+                            <span className= "slider round project-view"></span>
                         </label>
                         <span className = "dark-title-card table-view">TABLE VIEW</span>
                         </div>
@@ -217,7 +226,7 @@ function Projects() {
                 </div>
                 
                 
-                <button className = {!formStatus ? "add-form" : "no-form"} onClick = {toggleForm}>CLICK HERE TO ADD A PROJECT!</button>
+                <button className = {!formStatus ? "add-form" : "no-form"} onClick = {toggleForm}>ADD PROJECT!</button>
                 <div className = "priority-msg"><img  className = "pushpin"src = {pushpin} />=    HIGH PRIORITY</div>
                
                 <div className = "task-wrapper">

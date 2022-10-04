@@ -43,7 +43,7 @@ function SupplyDetail(props) {
     const { supplyId } = useParams()
 
     useEffect(()=> {
-      axios.get(`/supplies/${supplyId}`)
+      axios.get(`/api/supplies/${supplyId}`)
           .then( res => {
             setDetailedSupply(res.data)
               if (res.data.urgent === true) {
@@ -114,8 +114,6 @@ function SupplyDetail(props) {
           ...prevEditInputs,
           dateOfPurchase: e.target.value
         }
-        setIsEditing(false)
-        
       })
 
       
@@ -124,6 +122,8 @@ function SupplyDetail(props) {
       axios.put(`/supplies/dateOfPurchase/${detailedSupply._id}`, {dateOfPurchase: editInputs.dateOfPurchase})
         .then(res => setDetailedSupply(res.data))
         .catch(err => console.log(err))
+
+      setIsEditing(false)
 
     }
 
@@ -147,15 +147,18 @@ function SupplyDetail(props) {
             </ul>
 
             :
-
-            <form className = "detail-edit-form">
-              <input onChange = {handleEditChange} type = "text" name = "item" value = {editInputs.item} />
-              <input onChange = {handleEditChange} type = "text" name = "locationName" value = {editInputs.locationName}/>
-              <input onChange = {handleEditChange} type = "text" name = "price" value = {editInputs.price}/>
-              <input onChange = {handleEditChange} type = "number" name = "quanity" value = {editInputs.quanity}/>
-              <span>Add Date of Purchase</span><input onChange = {handleEditChange} type = "date" name = "dateOfPurchase" value = {editInputs.dateOfPurchase} /><span><button onClick = {addDateOfPurchase}>Add Date</button></span>
+            <>
+              <h2>EDIT Supply</h2>
+              <form className = "detail-edit-form">
+                <input onChange = {handleEditChange} type = "text" name = "item" value = {editInputs.item} />
+                <input onChange = {handleEditChange} type = "text" name = "locationName" value = {editInputs.locationName}/>
+                <input onChange = {handleEditChange} type = "text" name = "price" value = {editInputs.price}/>
+                <input onChange = {handleEditChange} type = "number" name = "quanity" value = {editInputs.quanity}/>
+                <span>Add Date of Purchase</span><input onChange = {handleEditChange} type = "date" name = "dateOfPurchase" value = {editInputs.dateOfPurchase} /><span><button onClick = {addDateOfPurchase}>Add Date</button></span>
               <button type = "submit" onClick = {handleEditSave}>SAVE</button>
             </form>
+            </>
+            
 }
 
 

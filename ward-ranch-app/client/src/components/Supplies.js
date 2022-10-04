@@ -3,6 +3,7 @@ import axios from "axios"
 import Supply from "./Supply.js"
 import Navbar from "./Navbar"
 import SupplyDetail from "./SupplyDetail.js"
+import SuppliesTable from "./SuppliesTable.js"
 
 function Supplies() {
 
@@ -22,7 +23,15 @@ function Supplies() {
         }
     ])
 
+    useEffect(() => {
+        axios.get("/api/supplies")
+        .then(res => setRecurringSupplies(res.data))
+        .catch(err => console.log(err))
+    }, [])
+
     const [ toggleSupplyView, setToggleSupplyView] = useState(false)
+    const [ toggleSpreadsheet, setToggleSpreadsheet] = useState(false)
+
 
     // useEffect(() => {
     //     axios.get("/supplies")
@@ -34,7 +43,8 @@ function Supplies() {
 
     function getSupplies() {
         setToggleSupplyView(true)
-        axios.get("/supplies")
+        setToggleSpreadsheet(false)
+        axios.get("/api/supplies")
         .then(res => setRecurringSupplies(res.data))
         .catch(err => console.log(err))
     }
@@ -44,8 +54,18 @@ function Supplies() {
     })
 
     function getUrgentSupplies() {
+        setToggleSpreadsheet(false)
         setToggleSupplyView(true)
-        axios.get("/supplies/search/urgent?urgent=true")
+        axios.get("/api/supplies/search/urgent?urgent=true")
+            .then(res => setRecurringSupplies(res.data))
+            .catch(err => console.log(err))
+    }
+
+    function getSpreadsheet() {
+        
+        setToggleSpreadsheet(true)
+        setToggleSupplyView(false)
+        axios.get("/api/supplies")
             .then(res => setRecurringSupplies(res.data))
             .catch(err => console.log(err))
     }
@@ -53,19 +73,20 @@ function Supplies() {
     return (
         <>
             <div className = "supplies-wrapper">
-                 <Navbar /> 
-                 <h1 className = "supplies-header">Supplies Tracker</h1>
-                 <div className = "button-div">
-                    <button className = "supply-btn"onClick = {getSupplies}>RECURRING SUPPLIES</button>
-                    <button className = "supply-btn" onClick = {getUrgentSupplies}>VIEW ALL URGENT SUPPLIES</button>
-                 </div> 
-                 {toggleSupplyView ? <div className = "supply-elements-container">
-                    {supplyElements}
+                 <div className = "supplies-container">
+                    
                  </div>
-                 :
-                 <></>
-                }
-                 
+                 <h1 className = "supplies-header">Supplies</h1>
+                 <div className = "button-div">
+                    <button className = "supply-btn"onClick = {getSupplies}>VIEW RECURRING SUPPLIES</button>
+                    <button className = "supply-btn" onClick = {getUrgentSupplies}>VIEW URGENT SUPPLIES</button>
+                    <button className = "supply-btn" onClick = {getSpreadsheet}>VIEW SPREADSHEET</button>
+                 </div> 
+                 <button>Add Supply</button>
+                 <div className = "supply-elements-container">
+                   {toggleSupplyView ? supplyElements : <></>}
+                   {toggleSpreadsheet ? <SuppliesTable data = {recurringSupplies} /> : <></>}
+                 </div>
             </div>               
 
 

@@ -34,12 +34,13 @@ function Form(props) {
         <>
         <form className = "task-form">
             <h3>ADD PROJECT</h3>
+            <input className = "form-input" placeholder="--- project ---" name = "title" value = {input.title} onChange = {handleChangeInput}/>
              <select className = "form-input" name = "location" value = {input.location} onChange = {handleChangeInput}>
              <option>--- Select Location ---</option>
                 <option className = "location-opt" value = "Inside">Inside</option>
                 <option className = "location-opt" value = "Outside">Outside</option>
              </select>
-            <input className = "form-input" placeholder="project" name = "title" value = {input.title} onChange = {handleChangeInput}/>
+            
             <select className = "form-input" value = {input.priority} name = "priority" onChange = {handleChangeInput}>
                 <option>--- Select Priority ---</option>
                 <option value = "Very High" >High Priority</option>

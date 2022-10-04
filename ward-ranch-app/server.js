@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require("mongoose")
 const morgan = require("morgan")
 require("dotenv").config()
-const {expressjwt: expressJwt} = require("express-jwt")
+const {expressjwt} = require("express-jwt")
 uri = process.env.MONGODB_URI
 const PORT = process.env.PORT || 9000
 
@@ -31,10 +31,10 @@ mongoose.connect(
 //routes
 
 // NOTE: changed tasks to projects on the front end
-app.use("/tasks", require("./routes/taskRouter.js"))
-app.use("/supplies", require("./routes/suppliesRouter.js"))
+app.use("/api/tasks", require("./routes/taskRouter.js"))
+app.use("/api/supplies", require("./routes/suppliesRouter.js"))
 app.use("/auth", require("./routes/authRouter.js"))
-app.use("/api", expressJwt({secret: process.env.SECRET, algorithms:['HS256']}))
+app.use("/api", expressjwt({secret: process.env.SECRET, algorithms:['HS256']}))
 
 
 
@@ -45,13 +45,13 @@ app.use("/api", expressJwt({secret: process.env.SECRET, algorithms:['HS256']}))
 //     return res.send({errMsg: err.message})
 // })
 
-// app.use((err, req, res, nexdt) => {
-//     console.log(err)
-//     if(err.name === "UnauthorizedError") {
-//         res.status(err.status)
-//     }
-//     return res.send({message: err.message})
-// })
+app.use((err, req, res, nexdt) => {
+    console.log(err)
+    if(err.name === "UnauthorizedError") {
+        res.status(err.status)
+    }
+    return res.send({errMsg: err.message})
+})
 
 
 

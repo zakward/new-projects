@@ -17,6 +17,7 @@ taskRouter.get("/", (req, res, next) => {
 
 //post one
 taskRouter.post("/", (req, res, next) => {
+    req.body.user = req.auth._id
     const newTask = new Task(req.body) 
     newTask.save((err, savedTask) => {
         if(err) {
@@ -28,7 +29,7 @@ taskRouter.post("/", (req, res, next) => {
 })
 
 taskRouter.delete("/:taskId", (req, res, next) => {
-    Task.findOneAndDelete({ _id: req.params.taskId }, (err, deletedTask) => {
+    Task.findOneAndDelete({ _id: req.params.taskId, user: req.body._id }, (err, deletedTask) => {
         if(err){
             res.status(500)
             return next(err)
@@ -51,7 +52,7 @@ taskRouter.get("/search/location", (req, res, next) =>{
 //edit one or put 
 
 taskRouter.put("/:taskId", (req, res, next) => {
-    Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, (err, updatedTask) => {
+    Task.findOneAndUpdate({_id: req.params.taskId, user: req.body._id}, req.body, {new: true}, (err, updatedTask) => {
         if(err) {
             res.status(500)
             return next(err)
@@ -64,6 +65,18 @@ taskRouter.put("/:taskId", (req, res, next) => {
 taskRouter.get("/search/assignedTo", (req, res, next) => {
     Task.find({assignedTo :  req.query.assignedTo}, (err, tasks) => {
         if (err) {
+            res.status(500)
+            return next(err)
+        }
+        res.status(200).send(tasks)
+    })
+})
+
+// Get tasks by user id
+
+taskRouter.get("/user", (req, res, next) => {
+    Task.find({user: req.body._id}, (err, tasks) =>{
+        if (err){
             res.status(500)
             return next(err)
         }
